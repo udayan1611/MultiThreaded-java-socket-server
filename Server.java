@@ -11,9 +11,8 @@ public class Server {
             @Override
             public void accept(Socket clientSocket) {
                 try {
-                    PrintWriter toClient = new PrintWriter(clientSocket.getOutputStream());
+                    PrintWriter toClient = new PrintWriter(clientSocket.getOutputStream(), true);
                     toClient.println("Hello from server!");
-                    toClient.close();
                     clientSocket.close();
                 } catch (IOException ex) {
                     ex.printStackTrace();
